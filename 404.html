@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecionando para a página inicial...</title>
+  <script type="text/javascript">
+    // Define o caminho base do seu repositório.
+    // Se o seu site está em "meu-usuario.github.io", deixe como "/".
+    // Se está em "meu-usuario.github.io/meu-repo/", mude para "/meu-repo/".
+    var basePath = "/sabordecasa/"; 
+
+    // Redireciona para a página inicial do seu site.
+    window.location.href = window.location.origin + basePath;
+
+    // --- Alternativa dinâmica (geralmente funciona melhor) ---
+    // Se não quiser configurar o `basePath` manualmente, 
+    // comente as duas linhas acima e descomente as três linhas abaixo.
+
+    // var path = window.location.pathname.split('/')[1] || '';
+    // var newLocation = window.location.protocol + '//' + window.location.hostname + '/' + path;
+    // window.location.href = newLocation;
+
+  </script>
+</head>
+<body>
+  Se você não for redirecionado automaticamente, <a href="/">clique aqui</a>.
+</body>
+</html>

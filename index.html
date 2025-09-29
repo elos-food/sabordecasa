@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html><html><head>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
@@ -17,6 +15,13 @@
     -->
     <base href="/sabordecasa/">
 
+  <link rel="preload" href="flutter.js" as="script">
+  <link rel="preload" href="main.dart.js" as="script">
+  
+  <!-- Otimizar fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
@@ -28,13 +33,16 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <title>elos_food</title>
   <link rel="manifest" href="manifest.json">
-</head>
-<body>
-    <style id="splash-screen-style">
+  
+  
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  
+  
+  <style id="splash-screen-style">
     html {
       height: 100%
     }
@@ -102,10 +110,17 @@
 </head>
 <body>
   <picture id="splash">
-      <source srcset="splash/img/light-1x.jpeg 1x, splash/img/light-2x.jpeg 2x, splash/img/light-3x.jpeg 3x, splash/img/light-4x.jpeg 4x" media="(prefers-color-scheme: light)">
-      <source srcset="splash/img/dark-1x.jpeg 1x, splash/img/dark-2x.jpeg 2x, splash/img/dark-3x.jpeg 3x, splash/img/dark-4x.jpeg 4x" media="(prefers-color-scheme: dark)">
-      <img class="center" aria-hidden="true" src="splash/img/light-1x.jpeg" alt="">
+      <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
+      <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
+      <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
   </picture>
-  <script src="flutter_bootstrap.js" async></script>
-</body>
-</html>
+  
+  
+    
+
+
+  
+  <script src="flutter_bootstrap.js" async=""></script>
+
+
+</body></html>
