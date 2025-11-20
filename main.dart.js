@@ -50852,7 +50852,7 @@ A.AI(r,r,!0,r,new A.axx(),s,r,!0,t.z)
 return}A.fJ("/escolher_endereco/",t.X)},
 $S:0}
 A.axw.prototype={
-$1(a){var s=null,r=A.a5("Dia de Manuten\xe7\xe3o",s,s,s,s,s,s,s),q=A.a5("No dia 20 de novembro de 2025, feriado nacional, estaremos fechados.",s,s,s,A.O(a).ok.y,s,s,s)
+$1(a){var s=null,r=A.a5("Fora do Hor\xe1rio",s,s,s,s,s,s,s),q=A.a5("No dia 20 de novembro de 2025, feriado nacional, estaremos fechados.",s,s,s,A.O(a).ok.y,s,s,s)
 return A.AU(A.b([A.hM(!1,B.Kv,s,s,s,s,s,s,new A.axv(a),s,s)],t.p),q,r)},
 $S:56}
 A.axv.prototype={
