@@ -52870,8 +52870,8 @@ agn(a){switch(a.a){case 0:return B.di
 case 1:case 2:return B.ct
 case 3:case 4:return B.ba}},
 agB(a){switch(a.a){case 0:return"Aguardando confirma\xe7\xe3o do restaurante"
-case 1:return"Tempo estimado: 25-35 minutos"
-case 2:return"Saiu para entrega - 10-15 minutos"
+case 1:return"Tempo estimado: 50-60 minutos"
+case 2:return"Saiu para entrega: 20-30 minutos"
 default:return""}},
 ahw(a){switch(a.f.a){case 0:this.ar1(a)
 break
