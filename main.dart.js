@@ -51520,7 +51520,7 @@ $0(){var s,r=null,q=new A.cd(Date.now(),0,!1)
 if(A.br(q)===2025&&A.bz(q)===11&&A.cR(q)===20){s=this.a.c
 s.toString
 A.B0(r,r,!0,r,new A.ayt(),s,r,!0,t.z)
-return}if(A.ua(q)===7||q.mq(A.cv(A.br(q),A.bz(q),A.cR(q),7,30,0,0))||q.pS(A.cv(A.br(q),A.bz(q),A.cR(q),13,0,0,0))){s=this.a.c
+return}if(A.ua(q)===7||q.mq(A.cv(A.br(q),A.bz(q),A.cR(q),7,30,0,0))||q.pS(A.cv(A.br(q),A.bz(q),A.cR(q),13,20,0,0))){s=this.a.c
 s.toString
 A.B0(r,r,!0,r,new A.ayu(),s,r,!0,t.z)
 return}A.fd("/escolher_endereco/",r,t.X)},
