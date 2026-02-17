@@ -53212,7 +53212,7 @@ A.vJ(r,r,!0,r,new A.azB(),s,r,!0,t.z)
 return}A.ff("/escolher_endereco/",r,t.X)},
 $S:0}
 A.azz.prototype={
-$1(a){var s=null,r=A.a1("Fora do Hor\xe1rio",s,s,s,s,s,s,s),q=A.a1("Estamos fechados para devido o recesso de 17 de fevereiro de 2026",s,s,s,A.P(a).ok.y,s,s,s)
+$1(a){var s=null,r=A.a1("Fora do Hor\xe1rio",s,s,s,s,s,s,s),q=A.a1("Estamos fechados no dia 17 de fevereiro de 2026 - Carnaval",s,s,s,A.P(a).ok.y,s,s,s)
 return A.vV(A.b([A.hr(B.pT,new A.azy(a),s)],t.p),q,r)},
 $S:54}
 A.azy.prototype={
