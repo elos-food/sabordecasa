@@ -53711,7 +53711,7 @@ if(!m.y){o={}
 n=n.c
 if(n==null){s=1
 break}o.a="O hor\xe1rio de funcionamento \xe9 de segunda a s\xe1bado das 7:30h \xe0s 13:00h.\nPor favor, tente novamente durante esse per\xedodo."
-if(m.z==="feriado")o.a="Estamos fechado devido ao feriado.\n\nO hor\xe1rio de funcionamento \xe9 de segunda a s\xe1bado das 7:30h \xe0s 13:00h.\nPor favor, tente novamente durante esse per\xedodo."
+if(m.z==="feriado")o.a="Estamos fechados devido ao feriado.\n\nO hor\xe1rio de funcionamento \xe9 de segunda a s\xe1bado das 7:30h \xe0s 13:00h.\nPor favor, tente novamente durante esse per\xedodo."
 A.NT(null,null,!0,null,new A.aAd(o),n,null,!0,t.z)
 s=1
 break}A.fg("/escolher_endereco/",null,t.X)
