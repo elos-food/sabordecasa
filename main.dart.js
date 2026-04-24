@@ -49764,7 +49764,7 @@ h=n.b.a,g=h.length,f=n.c,e=n.d,d=0
 case 3:if(!(d<h.length)){s=5
 break}l=h[d]
 p=7
-k=A.dd(A.m(l)+"/"+a3+"/banco_teste/"+a1,0,null)
+k=A.dd(A.m(l)+"/"+a3+"/sabor_de_casa/"+a1,0,null)
 s=10
 return A.A(f.ps("DELETE",k,a2,null,null).yV(0,e),$async$DN)
 case 10:j=a5
@@ -49806,7 +49806,7 @@ var $async$jz=A.u(function(a6,a7){if(a6===1){o.push(a7)
 s=p}for(;;)switch(s){case 0:a2=a2
 a5=a5
 if(a5==null)a5="elos_food"
-if(a5==="elos_food")a2="banco_teste/"+A.m(a2)
+if(a5==="elos_food")a2="sabor_de_casa/"+A.m(a2)
 m=0
 h=n.b.a,g=h.length,f=t.VI,e=n.c,d=n.d,c=0
 case 3:if(!(c<h.length)){s=5
@@ -49854,7 +49854,7 @@ var $async$yA=A.u(function(a4,a5){if(a4===1){o.push(a5)
 s=p}for(;;)switch(s){case 0:a0=a0
 a3=a3
 if(a3==null)a3="elos_food"
-if(a3==="elos_food")a0="banco_teste/"+A.m(a0)
+if(a3==="elos_food")a0="sabor_de_casa/"+A.m(a0)
 m=0
 h=n.b.a,g=h.length,f=n.c,e=n.d,d=0
 case 3:if(!(d<h.length)){s=5
@@ -49902,7 +49902,7 @@ var $async$yD=A.u(function(a4,a5){if(a4===1){o.push(a5)
 s=p}for(;;)switch(s){case 0:a0=a0
 a3=a3
 if(a3==null)a3="elos_food"
-if(a3==="elos_food")a0="banco_teste/"+A.m(a0)
+if(a3==="elos_food")a0="sabor_de_casa/"+A.m(a0)
 m=0
 h=n.b.a,g=h.length,f=n.c,e=n.d,d=0
 case 3:if(!(d<h.length)){s=5
