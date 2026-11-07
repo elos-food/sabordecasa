@@ -16,7 +16,7 @@
     <base href="/sabordecasa/">
 
   <link rel="preload" href="flutter.js" as="script">
-  <link rel="preload" href="main.dart.js" as="script">
+  <link rel="preload" href="main.dart.js?v=20261107083022" as="script">
   
   <!-- Otimizar fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,18 +24,19 @@
   
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Cardápio online: faça seu pedido para entrega ou retirada.">
+  <meta name="theme-color" content="#FF9800">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="elos_food">
+  <meta name="apple-mobile-web-app-title" content="Sabor de Casa">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <title>elos_food</title>
+  <title>Sabor de Casa</title>
   <link rel="manifest" href="manifest.json">
   
   
@@ -120,7 +121,108 @@
 
 
   
-  <script src="flutter_bootstrap.js" async=""></script>
+  <script>
+    // Registro de acessos do cardápio online. Roda antes do Flutter para registrar
+    // também quem abre o site e não chega a ver o cardápio (carregamento lento,
+    // navegador incompatível, falha ao baixar o app). O restante dos eventos é
+    // enviado pelo app (lib/services/eventos/eventos.dart), na mesma sessão.
+    (function () {
+      // Loja padrão; o app grava a loja real em elos_tenant para as próximas visitas.
+      var TENANT_PADRAO = 'sabor_de_casa';
+      // Mesma lista de lib/core/api_config.dart
+      var APIS = [
+        'https://silvatechsolutions.com.br',
+        'https://silvatechsolutionsv1.top',
+        'https://servidor-redundancia.vercel.app'
+      ];
+      try {
+        var host = location.hostname;
+        if (host === 'localhost' || host === '127.0.0.1') return;
+        // O app admin marca o navegador para não registrar
+        if (localStorage.getItem('elos_ignorar') === '1') return;
+
+        var novoId = function () {
+          var b = new Uint8Array(16);
+          crypto.getRandomValues(b);
+          return Array.prototype.map.call(b, function (x) {
+            return ('0' + x.toString(16)).slice(-2);
+          }).join('');
+        };
+        var lerOuCriar = function (storage, chave) {
+          try {
+            var v = storage.getItem(chave);
+            if (!v) { v = novoId(); storage.setItem(chave, v); }
+            return v;
+          } catch (e) { return novoId(); }
+        };
+
+        var tenant = localStorage.getItem('elos_tenant') || TENANT_PADRAO;
+        var sessao = lerOuCriar(sessionStorage, 'elos_sessao');
+        var dispositivo = lerOuCriar(localStorage, 'elos_dispositivo');
+        var cliente = {};
+        try { cliente = JSON.parse(localStorage.getItem('elos_cliente') || '{}') || {}; } catch (e) {}
+
+        var enviar = function (evento, dados, i) {
+          i = i || 0;
+          if (i >= APIS.length) return;
+          var corpo = JSON.stringify({
+            sessao: sessao,
+            dispositivo: dispositivo,
+            plataforma: 'web',
+            origem: location.href,
+            clienteId: cliente.clienteId,
+            nome: cliente.nome,
+            telefone: cliente.telefone,
+            eventos: [{ evento: evento, momento: new Date().toISOString(), dados: dados }]
+          });
+          // text/plain evita o preflight de CORS; keepalive entrega mesmo se a página fechar
+          fetch(APIS[i] + '/elos_food/' + tenant + '/eventos', {
+            method: 'POST', body: corpo, keepalive: true,
+            headers: { 'Content-Type': 'text/plain' }
+          }).then(function (r) {
+            if (!r.ok && r.status !== 400) enviar(evento, dados, i + 1);
+          }).catch(function () { enviar(evento, dados, i + 1); });
+        };
+
+        var segundos = function () { return Math.round(performance.now() / 1000); };
+        var conexao = navigator.connection || {};
+        var errosCarga = [];
+
+        enviar('site_aberto', {
+          online: navigator.onLine,
+          conexao: conexao.effectiveType,
+          tela: screen.width + 'x' + screen.height,
+          referencia: document.referrer || undefined
+        });
+
+        // Falhas ao baixar scripts/arquivos do app (fase de captura pega erros de recurso)
+        window.addEventListener('error', function (e) {
+          if (window.elosAppIniciado || errosCarga.length >= 5) return;
+          var alvo = e.target && (e.target.src || e.target.href);
+          errosCarga.push(alvo ? 'falha ao carregar ' + alvo : String(e.message || e.type));
+        }, true);
+
+        setTimeout(function () {
+          if (!window.elosAppIniciado) {
+            enviar('app_lento', { segundos: segundos(), online: navigator.onLine, erros: errosCarga.join(' | ') || undefined });
+          }
+        }, 20000);
+
+        var saiu = false;
+        var aoSair = function () {
+          if (saiu || window.elosAppIniciado) return;
+          saiu = true;
+          enviar('saiu_antes_de_carregar', { segundos: segundos(), online: navigator.onLine, erros: errosCarga.join(' | ') || undefined });
+        };
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'hidden') aoSair();
+        });
+        window.addEventListener('pagehide', aoSair);
+      } catch (e) {}
+    })();
+  </script>
+
+  <script src="flutter_bootstrap.js?v=20261107083022" async=""></script>
 
 
 </body></html>
